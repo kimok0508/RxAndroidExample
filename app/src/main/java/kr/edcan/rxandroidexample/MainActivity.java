@@ -17,8 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
         textHello = (TextView) findViewById(R.id.text_hello);
 
-        Observable.just(textHello.getText().toString())
-                .map(str -> str + " Rx!")
-                .subscribe(text -> textHello.setText(text));
+//        Observable.just(textHello.getText().toString())
+//                .map(str -> str + " Rx!")
+//                .subscribe(text -> textHello.setText(text));
+
+        Observable.range(1, 9)
+                .map(i -> i + " * " + 3 + " = " + (i*3) + "\n")
+                .subscribe(textHello::append);
     }
 }
